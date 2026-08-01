@@ -132,35 +132,32 @@ nav a:hover::after{transform:scaleX(1)}
 .hero .sub{max-width:44ch;margin-top:34px;color:var(--dim);font-size:1.06rem}
 .hero .ctas{display:flex;gap:18px;flex-wrap:wrap;margin-top:46px;align-items:center}
 .hero .note{margin-top:34px;font-size:.87rem;color:var(--dim);letter-spacing:.03em;max-width:40ch}
-/* ---------- Hero portrait + chart wheel behind it ---------- */
-.portrait{position:relative;width:430px;flex-shrink:0;isolation:isolate}
+/* ---------- Hero portrait ---------- */
+.portrait{position:relative;width:440px;flex-shrink:0;isolation:isolate;margin:0}
 .portrait img{
   display:block;width:100%;height:auto;position:relative;z-index:2;
-  filter:contrast(1.02) saturate(.96);
+  border:1.5px solid var(--faint);
   animation:rise 1.1s cubic-bezier(.2,.7,.3,1) both;
 }
-/* amber light spilling from behind the figure */
-.portrait::before{
-  content:'';position:absolute;inset:-14% -10% -4%;z-index:0;
-  background:radial-gradient(58% 52% at 52% 42%,rgba(217,100,42,.17),transparent 68%);
-  filter:blur(6px);
-}
+/* chart wheel peeks out from behind the top-left corner of the frame */
 .wheel{
-  position:absolute;z-index:1;top:-2%;left:50%;width:96%;height:auto;
-  transform:translateX(-50%);opacity:.22;animation:spin 240s linear infinite;
+  position:absolute;z-index:1;top:-7%;left:-13%;width:56%;height:auto;
+  opacity:.5;animation:spin 240s linear infinite;
 }
-@keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){
   .wheel{animation:none}
   .portrait img{animation:none}
 }
 .portrait figcaption{
-  position:relative;z-index:4;text-align:center;margin:0;padding-top:4px;
+  position:relative;z-index:4;text-align:center;margin:0;padding-top:20px;
 }
 .portrait .nm{display:block;font-family:var(--serif);font-size:1.62rem;font-weight:500;
   color:var(--chalk);letter-spacing:-.01em;line-height:1.2}
-.portrait .rl{display:block;font-size:0.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-top:7px}
+.portrait .rl{display:block;font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--amber);margin-top:9px}
+
 
 /* ---------- Trust — inline, typographic ---------- */
 .trust{border-block:1.5px solid var(--faint);padding:0}
@@ -503,8 +500,8 @@ header{overflow:visible}
   .hero{padding:70px 0 84px}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .hero-grid > div{order:2}
-  .portrait{order:1;width:min(78vw,340px);margin:0 auto}
-  .portrait figcaption{margin:0 6%}
+  .portrait{order:1;width:min(82vw,380px);margin:0 auto}
+  .wheel{width:44%;top:-5%;left:-9%}
   header .wrap{gap:14px;justify-content:space-between}
   nav{display:none}
   nav.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--void2);
