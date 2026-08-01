@@ -13,11 +13,12 @@ No build step, no dependencies, no backend. Open `index.html` in a browser and i
 | File | Purpose |
 |---|---|
 | `index.html` | Landing page markup and page-specific behaviour |
-| `gautam-portrait.webp` | Hero portrait, 900px |
-| `gautam-portrait-sm.webp` | Hero portrait, 450px, served via `srcset` |
+| `gautam-namaste.webp` | Hero portrait, 900px, transparent alpha |
+| `gautam-namaste-sm.webp` | Hero portrait, 450px, served via `srcset` |
 | `shop.html` | Product listing page with category filters |
 | `style.css` | Shared stylesheet |
 | `i18n.js` | Shared language packs and switcher engine |
+| `search.js` | Site search index and autosuggest |
 | `.nojekyll` | Stops GitHub Pages running Jekyll over the files |
 
 ---

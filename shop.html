@@ -129,6 +129,13 @@
       <a href="#book" data-i18n="nav_contact">Contact</a>
     </nav>
     <div class="head-right">
+      <div class="searchbox" id="searchBox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+        <input id="searchInput" type="search" autocomplete="off" role="combobox"
+               aria-expanded="false" aria-controls="searchPanel" aria-label="Search"
+               data-i18n="search_ph" placeholder="Search services, tools, products">
+        <div class="sx-panel" id="searchPanel" role="listbox" hidden></div>
+      </div>
       <div class="langbox">
         <button class="langbtn" id="langBtn" aria-haspopup="true" aria-expanded="false">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
@@ -354,6 +361,7 @@
 </div>
 
 <script src="i18n.js"></script>
+<script src="search.js" defer></script>
 <script>
 /* ---------- Mobile nav ---------- */
 const navEl = document.getElementById('nav');

@@ -10,9 +10,9 @@
 <meta property="og:description" content="25+ years of experience. Book a consultation or get a free 5-minute check on WhatsApp.">
 <meta property="og:url" content="https://gautamspeaks.com/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://gautamspeaks.com/gautam-portrait.webp">
+<meta property="og:image" content="https://gautamspeaks.com/gautam-namaste.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="gautam-portrait.webp" imagesrcset="gautam-portrait-sm.webp 450w, gautam-portrait.webp 900w">
+<link rel="preload" as="image" href="gautam-namaste.webp" imagesrcset="gautam-namaste-sm.webp 450w, gautam-namaste.webp 900w">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -130,6 +130,13 @@
       <a href="#book" data-i18n="nav_contact">Contact</a>
     </nav>
     <div class="head-right">
+      <div class="searchbox" id="searchBox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+        <input id="searchInput" type="search" autocomplete="off" role="combobox"
+               aria-expanded="false" aria-controls="searchPanel" aria-label="Search"
+               data-i18n="search_ph" placeholder="Search services, tools, products">
+        <div class="sx-panel" id="searchPanel" role="listbox" hidden></div>
+      </div>
       <div class="langbox">
         <button class="langbtn" id="langBtn" aria-haspopup="true" aria-expanded="false">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
@@ -169,11 +176,11 @@
             <circle cx="168" cy="32" r="1.1"/><circle cx="168" cy="168" r="1.1"/><circle cx="32" cy="168" r="1.1"/><circle cx="32" cy="32" r="1.1"/>
           </g>
         </svg>
-        <span class="frame"><img src="gautam-portrait.webp"
-             srcset="gautam-portrait-sm.webp 450w, gautam-portrait.webp 900w"
-             sizes="(max-width:900px) 82vw, 440px"
-             width="900" height="1125" fetchpriority="high" decoding="async"
-             alt="Acharya Gautam Naik, Vedic astrologer and Vastu consultant, seated at his Mumbai consulting room"></span>
+        <span class="frame"><img src="gautam-namaste.webp"
+             srcset="gautam-namaste-sm.webp 450w, gautam-namaste.webp 900w"
+             sizes="(max-width:900px) 80vw, 430px"
+             width="900" height="913" fetchpriority="high" decoding="async"
+             alt="Acharya Gautam Naik, Vedic astrologer and Vastu consultant, Mumbai, greeting with folded hands"></span>
         <figcaption>
           <span class="nm">Acharya Gautam Naik</span>
           <span class="rl" data-i18n="hero_badge">25+ Years of Vedic Practice · Mumbai</span>
@@ -766,6 +773,7 @@
 </div>
 
 <script src="i18n.js"></script>
+<script src="search.js" defer></script>
 <script>
 /* ---------- Mobile nav ---------- */
 const navEl = document.getElementById('nav');
