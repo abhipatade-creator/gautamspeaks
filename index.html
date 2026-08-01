@@ -214,6 +214,10 @@
                data-i18n="search_ph" placeholder="Search services, tools, products">
         <div class="sx-panel" id="searchPanel" role="listbox" hidden></div>
       </div>
+      <button class="cart-open" aria-label="Cart">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 002 1.6h7.8a2 2 0 002-1.6L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg>
+        <span class="cart-badge" hidden>0</span>
+      </button>
       <div class="langbox">
         <button class="langbtn" id="langBtn" aria-haspopup="true" aria-expanded="false">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20"/></svg>
@@ -578,123 +582,27 @@
       <p data-i18n="prod_sub">Each piece is energised by Acharya Gautam before it is sent, and only recommended when your chart actually calls for it.</p>
     </div>
     <div class="prod-grid">
-      <a class="prod" href="https://wa.me/919769759215?text=Shree%20Yantra" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/yantra-shree.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_yantra">Yantra</span>
-        <span class="pn">Shree Yantra</span>
-        <span class="pd">Copper, energised</span>
-        <span class="pp">&#8377;1,100</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Vastu%20Dosh%20Nivaran%20Yantra" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/yantra-vastu.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_yantra">Yantra</span>
-        <span class="pn">Vastu Dosh Nivaran Yantra</span>
-        <span class="pd">Copper, energised</span>
-        <span class="pp">&#8377;1,450</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Kuber%20Yantra" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/yantra-kuber.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_yantra">Yantra</span>
-        <span class="pn">Kuber Yantra</span>
-        <span class="pd">Copper, energised</span>
-        <span class="pp">&#8377;950</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Rashi%20Bracelet" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/brac-rashi.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_bracelet">Yantra</span>
-        <span class="pn">Rashi Bracelet</span>
-        <span class="pd">Your sign&rsquo;s stone</span>
-        <span class="pp">&#8377;849</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=7%20Mukhi%20Rudraksha%20Bracelet" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/brac-rudraksha.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_bracelet">Yantra</span>
-        <span class="pn">7 Mukhi Rudraksha Bracelet</span>
-        <span class="pd">Nepali beads</span>
-        <span class="pp">&#8377;750</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Pyrite%20and%20Tiger%20Eye%20Bracelet" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/brac-pyrite.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_bracelet">Yantra</span>
-        <span class="pn">Pyrite &amp; Tiger Eye Bracelet</span>
-        <span class="pd">Wealth &amp; drive</span>
-        <span class="pp">&#8377;849</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Vastu%20Pyramid%20Set" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/vastu-pyramid.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_vastu">Yantra</span>
-        <span class="pn">Vastu Pyramid Set</span>
-        <span class="pd">Set of 9</span>
-        <span class="pp">&#8377;1,600</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Copper%20Vastu%20Plate" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/vastu-plate.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="prod_vastu">Yantra</span>
-        <span class="pn">Copper Vastu Plate</span>
-        <span class="pd">For the main door</span>
-        <span class="pp">&#8377;1,250</span>
-      </a>
+      <div class="prod" data-cat="yantra"><a class="prod-a" href="product/shree-yantra.html"><span class="pgw"><img src="img/yantra-shree.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_yantra"></span><span class="pn">Shree Yantra</span><span class="pd">Copper, energised</span><span class="pp">&#8377;1,100</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="shree-yantra" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="shree-yantra" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/shree-yantra.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="yantra"><a class="prod-a" href="product/vastu-dosh-yantra.html"><span class="pgw"><img src="img/yantra-vastu.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_yantra"></span><span class="pn">Vastu Dosh Nivaran Yantra</span><span class="pd">Copper, energised</span><span class="pp">&#8377;1,450</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="vastu-dosh-yantra" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="vastu-dosh-yantra" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/vastu-dosh-yantra.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="yantra"><a class="prod-a" href="product/kuber-yantra.html"><span class="pgw"><img src="img/yantra-kuber.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_yantra"></span><span class="pn">Kuber Yantra</span><span class="pd">Copper, energised</span><span class="pp">&#8377;950</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="kuber-yantra" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="kuber-yantra" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/kuber-yantra.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="bracelet"><a class="prod-a" href="product/rashi-bracelet.html"><span class="pgw"><img src="img/brac-rashi.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_bracelet"></span><span class="pn">Rashi Bracelet</span><span class="pd">Your sign’s stone</span><span class="pp">&#8377;849</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="rashi-bracelet" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="rashi-bracelet" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/rashi-bracelet.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="bracelet"><a class="prod-a" href="product/rudraksha-7mukhi.html"><span class="pgw"><img src="img/brac-rudraksha.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_bracelet"></span><span class="pn">7 Mukhi Rudraksha Bracelet</span><span class="pd">Nepali beads</span><span class="pp">&#8377;750</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="rudraksha-7mukhi" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="rudraksha-7mukhi" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/rudraksha-7mukhi.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="bracelet"><a class="prod-a" href="product/pyrite-tiger-eye.html"><span class="pgw"><img src="img/brac-pyrite.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_bracelet"></span><span class="pn">Pyrite & Tiger Eye Bracelet</span><span class="pd">Wealth & drive</span><span class="pp">&#8377;849</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="pyrite-tiger-eye" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="pyrite-tiger-eye" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/pyrite-tiger-eye.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="vastu"><a class="prod-a" href="product/vastu-pyramid-set.html"><span class="pgw"><img src="img/vastu-pyramid.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_vastu"></span><span class="pn">Vastu Pyramid Set</span><span class="pd">Set of 9</span><span class="pp">&#8377;1,600</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="vastu-pyramid-set" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="vastu-pyramid-set" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/vastu-pyramid-set.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="vastu"><a class="prod-a" href="product/copper-vastu-plate.html"><span class="pgw"><img src="img/vastu-plate.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="prod_vastu"></span><span class="pn">Copper Vastu Plate</span><span class="pd">For the main door</span><span class="pp">&#8377;1,250</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="copper-vastu-plate" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="copper-vastu-plate" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/copper-vastu-plate.html" data-i18n="p_details">View details</a></div></div>
     </div>
 
     <h3 class="store-sub" data-i18n="rep_title">Written reports</h3>
     <p class="store-lead" data-i18n="rep_sub">A full analysis you can keep and re-read, delivered as a PDF within 24 to 48 hours. No appointment needed.</p>
     <div class="prod-grid">
-      <a class="prod" href="https://wa.me/919769759215?text=Career%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-career.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_career">Career Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;2,700</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Marriage%20and%20Compatibility%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-marriage.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_marriage">Marriage & Compatibility Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;2,400</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Wealth%20and%20Finance%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-finance.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_finance">Wealth & Finance Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;2,400</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Health%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-health.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_health">Health Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;2,100</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Business%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-business.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_business">Business Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;3,000</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Education%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-education.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_education">Education Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;1,800</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Foreign%20Settlement%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-foreign.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_foreign">Foreign Settlement Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;2,100</span>
-      </a>
-      <a class="prod" href="https://wa.me/919769759215?text=Child%20and%20Family%20Report" target="_blank" rel="noopener">
-        <span class="pgw"><img src="img/rep-child.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span>
-        <span class="cat" data-i18n="rep_cat">Written report</span>
-        <span class="pn" data-i18n="t_child">Child & Family Report</span>
-        <span class="pd" data-i18n="lbl_pdf">PDF, 24&ndash;48 hrs</span>
-        <span class="pp">&#8377;1,800</span>
-      </a>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/career-report.html"><span class="pgw"><img src="img/rep-career.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Career Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;2,700</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="career-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="career-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/career-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/marriage-report.html"><span class="pgw"><img src="img/rep-marriage.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Marriage & Compatibility Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;2,400</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="marriage-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="marriage-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/marriage-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/wealth-report.html"><span class="pgw"><img src="img/rep-finance.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Wealth & Finance Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;2,400</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="wealth-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="wealth-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/wealth-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/health-report.html"><span class="pgw"><img src="img/rep-health.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Health Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;2,100</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="health-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="health-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/health-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/business-report.html"><span class="pgw"><img src="img/rep-business.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Business Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;3,000</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="business-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="business-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/business-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/education-report.html"><span class="pgw"><img src="img/rep-education.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Education Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;1,800</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="education-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="education-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/education-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/foreign-report.html"><span class="pgw"><img src="img/rep-foreign.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Foreign Settlement Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;2,100</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="foreign-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="foreign-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/foreign-report.html" data-i18n="p_details">View details</a></div></div>
+      <div class="prod" data-cat="report"><a class="prod-a" href="product/child-report.html"><span class="pgw"><img src="img/rep-child.webp" width="520" height="520" loading="lazy" decoding="async" alt=""></span><span class="cat" data-i18n="rep_cat"></span><span class="pn">Child & Family Report</span><span class="pd">PDF, 24–48 hrs</span><span class="pp">&#8377;1,800</span></a><div class="prod-cta"><button class="btn btn-fill btn-sm" data-buy="child-report" data-i18n="p_quickbuy">Quick buy</button><button class="btn btn-sm" data-add="child-report" data-i18n="p_addcart">Add to cart</button><a class="prod-more" href="product/child-report.html" data-i18n="p_details">View details</a></div></div>
     </div>
     <p class="rashi-note" data-i18n="prod_note">Unsure which one suits you? Ask first &mdash; we will tell you honestly if you do not need one.</p>
   </div>
@@ -828,9 +736,11 @@
 </div>
 
 <script src="i18n.js"></script>
+<script src="products.js"></script>
 <script src="search.js" defer></script>
 <script src="panchang.js"></script>
 <script src="booking.js" defer></script>
+<script src="cart.js" defer></script>
 <script src="rashi.js" defer></script>
 <script>
 /* ---------- Mobile nav ---------- */
@@ -921,6 +831,7 @@ navEl.querySelectorAll('a:not(.navtop)').forEach(function(a){
   });
 
   const SYM = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
+  const SLUG = ['mesh','vrishabh','mithun','kark','simha','kanya','tula','vrishchik','dhanu','makar','kumbh','meen'];
   /* Chandra Bala — Moon counted from janma rashi */
   const BALA = {1:'good',2:'mixed',3:'good',4:'bad',5:'mixed',6:'good',
                 7:'good',8:'bad',9:'mixed',10:'good',11:'good',12:'bad'};
@@ -970,8 +881,7 @@ navEl.querySelectorAll('a:not(.navtop)').forEach(function(a){
       const cls = BALA[pos];
       const a = document.createElement('a');
       a.className = 'mrow';
-      a.href = 'https://wa.me/919769759215?text=' + encodeURIComponent(name);
-      a.target = '_blank'; a.rel = 'noopener';
+      a.href = 'rashi/' + SLUG[i] + '.html';
       a.innerHTML = '<span class="ms">' + SYM[i] + '</span>'
         + '<span><span class="mn">' + name + '</span>'
         + '<span class="mv ' + cls + '">' + pos + ' · ' + words[cls] + '</span></span>'

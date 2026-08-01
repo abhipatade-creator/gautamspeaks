@@ -19,7 +19,8 @@ No build step, no dependencies, no backend. Open `index.html` in a browser and i
 | `style.css` | Shared stylesheet |
 | `i18n.js` | Shared language packs and switcher engine |
 | `search.js` | Site search index and autosuggest |
-| `booking.js` | Booking modal + scheduler; slots checked against Rahu Kaal |
+| `booking.js` | Booking modal — service dropdown, email, consent, Rahu-Kaal-aware slots |
+| `rashi.js` | Rashi detail modal + this month's computed events |
 | `img/*.webp` | 16 illustrated product tiles |
 | `panchang.js` | Shared astronomy engine (used by index and all 12 rashi pages) |
 | `rashi/*.html` | 12 per-sign pages with live Chandra Bala |
@@ -114,6 +115,8 @@ Everything lives in `index.html`.
 | Language list | The `LANGS` array |
 | Colours / type | CSS custom properties in `:root` |
 | Panchang cities | The `<select id="panPlace">` options — `"lat,lon,Name"` |
+| Service prices | `PRICE` map in `booking.js` (rupees; `0` = quote on request) |
+| Payment gateway | `PAY.key` in `booking.js` — set a Razorpay `key_id` to switch it on |
 
 ---
 
@@ -127,6 +130,7 @@ Everything lives in `index.html`.
 - [ ] Replace the illustrated product tiles in `img/` with photographs
 - [ ] Point every `wa.me` link at the correct business number
 - [ ] Split `i18n.js` per language to cut ~200 KB from first load
+- [ ] Add a Razorpay `key_id` to `PAY.key` and a server route to create orders
 
 ---
 
