@@ -19,6 +19,10 @@ No build step, no dependencies, no backend. Open `index.html` in a browser and i
 | `style.css` | Shared stylesheet |
 | `i18n.js` | Shared language packs and switcher engine |
 | `search.js` | Site search index and autosuggest |
+| `panchang.js` | Shared astronomy engine (used by index and all 12 rashi pages) |
+| `rashi/*.html` | 12 per-sign pages with live Chandra Bala |
+| `privacy.html` `terms.html` `refund.html` | Policy pages |
+| `sitemap.xml` `robots.txt` | Crawl directives, 17 URLs x 11 hreflang alternates |
 | `.nojekyll` | Stops GitHub Pages running Jekyll over the files |
 
 ---
@@ -111,12 +115,14 @@ Everything lives in `index.html`.
 
 ## Before going live
 
-- [ ] Replace the placeholder testimonials with real, permissioned ones
-- [ ] Confirm the "5,000 consultations" figure or change it
+- [x] Removed the placeholder testimonials and the invented consultation count
+- [x] `LocalBusiness`, `Person`, `WebSite`, `FAQPage`, `OfferCatalog` and per-page `Article` schema
+- [x] `sitemap.xml`, `robots.txt`, `hreflang` for all 10 languages
+- [x] Policy pages: privacy, terms, refund and shipping
+- [ ] Add real testimonials once you have permission to publish them
 - [ ] Add real product photography to replace the SVG line art in the Shop
 - [ ] Point every `wa.me` link at the correct business number
-- [ ] Add `LocalBusiness`, `FAQ` and `Product` schema markup
-- [ ] Set the canonical URL and `og:image` to the live domain
+- [ ] Split `i18n.js` per language to cut ~200 KB from first load
 
 ---
 

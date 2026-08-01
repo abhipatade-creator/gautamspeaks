@@ -1528,6 +1528,13 @@ function setLang(code){
 
   try { localStorage.setItem(STORE_KEY, current); } catch(e){}
 
+  /* keep the URL in step so the page is shareable and crawlable per language */
+  try {
+    const u = new URL(location.href);
+    if (current === 'en') u.searchParams.delete('lang'); else u.searchParams.set('lang', current);
+    history.replaceState(null, '', u);
+  } catch(e){}
+
   try { window.dispatchEvent(new Event('gs:lang')); } catch(e){}
 
   /* Pre-fill every WhatsApp link with a greeting in the chosen language */
@@ -1549,6 +1556,11 @@ document.querySelectorAll('.svc a[href*="wa.me/"]').forEach(function(a){
 
 /* Choose the starting language: saved > browser > English */
 function detect(){
+  /* an explicit ?lang= wins — this is what hreflang points search engines at */
+  try {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (q && T[q]) return q;
+  } catch(e){}
   try { const s = localStorage.getItem(STORE_KEY); if (s && T[s]) return s; } catch(e){}
   const nav = (navigator.languages || [navigator.language || 'en']);
   for (var i = 0; i < nav.length; i++){

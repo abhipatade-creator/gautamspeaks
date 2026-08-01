@@ -165,6 +165,7 @@ nav a:hover::after{transform:scaleX(1)}
 /* ---------- Trust — inline, typographic ---------- */
 .trust{border-block:1.5px solid var(--faint);padding:0}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-grid.trust-3{grid-template-columns:repeat(3,1fr)}
 .trust-grid > div{padding:44px 24px;text-align:center;border-left:1.5px solid var(--faint)}
 .trust-grid > div:first-child{border-left:0}
 .trust-grid strong{display:block;font-family:var(--serif);font-size:2.6rem;font-weight:400;color:var(--amber);line-height:1}
@@ -256,7 +257,7 @@ textarea{resize:vertical;min-height:70px}
 
 /* ---------- Footer ---------- */
 footer{border-top:1.5px solid var(--faint);padding:90px 0 110px}
-.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px}
 footer h4{font-size:0.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:22px;font-weight:400}
 footer p,footer li{font-size:0.9rem;color:var(--dim);list-style:none;margin-bottom:12px}
 footer a:hover{color:var(--amber)}
@@ -515,7 +516,7 @@ header{overflow:visible}
   .head-right{gap:14px}
   .head-right .btn{display:none}
   .brand{font-size:1.15rem}
-  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-grid,.trust-grid.trust-3{grid-template-columns:repeat(2,1fr)}
   .trust-grid > div{border-left:0;border-top:1.5px solid var(--faint);padding:32px 12px}
   .trust-grid > div:nth-child(-n+2){border-top:0}
   .trust-grid > div:nth-child(even){border-left:1.5px solid var(--faint)}
@@ -580,3 +581,33 @@ header{overflow:visible}
   .head-right{flex-wrap:wrap}
   .sx-panel{left:0;right:0}
 }
+
+/* ---------- Rashi pages ---------- */
+.crumb{font-size:.78rem;color:var(--dim);margin-bottom:26px;display:flex;gap:9px;flex-wrap:wrap;align-items:baseline}
+.crumb a:hover{color:var(--amber)}
+.crumb span{opacity:.5}
+.crumb em{font-style:normal;color:var(--chalk)}
+.rashi-hero{padding:52px 0 46px;border-bottom:1.5px solid var(--faint);
+  background:radial-gradient(720px 300px at 30% 0,rgba(184,83,33,.07),transparent 70%)}
+.rh-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.rashi-hero h1{font-size:clamp(2.1rem,5vw,3.4rem);margin:16px 0 0}
+.rashi-hero .sub{max-width:56ch;margin-top:18px;color:var(--dim);font-size:1.02rem}
+.rashi-hero .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;align-items:center}
+.rh-sym{font-family:var(--serif);font-size:clamp(5rem,13vw,9rem);color:var(--amber);
+  line-height:1;opacity:.9}
+.pcell em{font-weight:500}
+@media(max-width:900px){
+  .rh-grid{grid-template-columns:1fr;gap:20px}
+  .rh-sym{font-size:4.4rem}
+  .rashi-hero{padding:36px 0 34px}
+}
+
+/* ---------- Legal pages ---------- */
+.legal{max-width:68ch}
+.legal h2{font-size:1.35rem;margin:44px 0 14px}
+.legal h2:first-child{margin-top:0}
+.legal p{color:var(--dim);margin-bottom:14px;line-height:1.75}
+.legal a{color:var(--amber);text-decoration:underline;text-underline-offset:3px}
+.legal code{font-family:ui-monospace,monospace;font-size:.9em;background:var(--void2);
+  padding:2px 6px;border:1.5px solid var(--faint)}
+.legal strong{color:var(--chalk);font-weight:500}
