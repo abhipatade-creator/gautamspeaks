@@ -133,11 +133,17 @@ nav a:hover::after{transform:scaleX(1)}
 .hero .ctas{display:flex;gap:18px;flex-wrap:wrap;margin-top:46px;align-items:center}
 .hero .note{margin-top:34px;font-size:.87rem;color:var(--dim);letter-spacing:.03em;max-width:40ch}
 /* ---------- Hero portrait ---------- */
-.portrait{position:relative;width:440px;flex-shrink:0;isolation:isolate;margin:0}
-.portrait img{
-  display:block;width:100%;height:auto;position:relative;z-index:2;
+.portrait{position:relative;width:440px;flex-shrink:0;isolation:isolate;margin:0;--arch:220px}
+/* temple arch (mehrab) — shaped at the top, square and grounded at the base */
+.portrait .frame{
+  position:relative;z-index:2;display:block;padding:7px;background:var(--void);
   border:1.5px solid var(--faint);
+  border-radius:var(--arch) var(--arch) 3px 3px;
   animation:rise 1.1s cubic-bezier(.2,.7,.3,1) both;
+}
+.portrait img{
+  display:block;width:100%;height:auto;
+  border-radius:calc(var(--arch) - 7px) calc(var(--arch) - 7px) 0 0;
 }
 /* chart wheel peeks out from behind the top-left corner of the frame */
 .wheel{
@@ -148,10 +154,10 @@ nav a:hover::after{transform:scaleX(1)}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){
   .wheel{animation:none}
-  .portrait img{animation:none}
+  .portrait .frame{animation:none}
 }
 .portrait figcaption{
-  position:relative;z-index:4;text-align:center;margin:0;padding-top:20px;
+  position:relative;z-index:4;text-align:center;margin:0;padding-top:38px;
 }
 .portrait .nm{display:block;font-family:var(--serif);font-size:1.62rem;font-weight:500;
   color:var(--chalk);letter-spacing:-.01em;line-height:1.2}
@@ -500,7 +506,7 @@ header{overflow:visible}
   .hero{padding:70px 0 84px}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .hero-grid > div{order:2}
-  .portrait{order:1;width:min(82vw,380px);margin:0 auto}
+  .portrait{order:1;width:min(82vw,380px);margin:0 auto;--arch:190px}
   .wheel{width:44%;top:-5%;left:-9%}
   header .wrap{gap:14px;justify-content:space-between}
   nav{display:none}
