@@ -19,6 +19,8 @@ No build step, no dependencies, no backend. Open `index.html` in a browser and i
 | `style.css` | Shared stylesheet |
 | `i18n.js` | Shared language packs and switcher engine |
 | `search.js` | Site search index and autosuggest |
+| `booking.js` | Booking modal + scheduler; slots checked against Rahu Kaal |
+| `img/*.webp` | 16 illustrated product tiles |
 | `panchang.js` | Shared astronomy engine (used by index and all 12 rashi pages) |
 | `rashi/*.html` | 12 per-sign pages with live Chandra Bala |
 | `privacy.html` `terms.html` `refund.html` | Policy pages |
@@ -83,7 +85,9 @@ Moolank, Bhagyank and mobile-number vibration with ruling planets, plus a compat
 - Mega-menu navigation, 43 destinations, hover-intent on desktop and accordion on mobile
 - Sticky header that condenses on scroll
 - Canvas starfield and a rotating chart wheel, both honouring `prefers-reduced-motion`
-- Every form and CTA routes to WhatsApp — no backend, no database, no PII stored
+- Every CTA opens a booking modal first; WhatsApp receives a complete enquiry
+- Consultation slots are checked live against Rahu Kaal and Abhijit Muhurat
+- No backend, no database, no PII stored
 
 ---
 
@@ -120,7 +124,7 @@ Everything lives in `index.html`.
 - [x] `sitemap.xml`, `robots.txt`, `hreflang` for all 10 languages
 - [x] Policy pages: privacy, terms, refund and shipping
 - [ ] Add real testimonials once you have permission to publish them
-- [ ] Add real product photography to replace the SVG line art in the Shop
+- [ ] Replace the illustrated product tiles in `img/` with photographs
 - [ ] Point every `wa.me` link at the correct business number
 - [ ] Split `i18n.js` per language to cut ~200 KB from first load
 
