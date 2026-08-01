@@ -146,8 +146,8 @@ nav a:hover::after{transform:scaleX(1)}
   filter:blur(6px);
 }
 .wheel{
-  position:absolute;z-index:1;top:2%;left:50%;width:104%;height:auto;
-  transform:translateX(-50%);opacity:.28;animation:spin 240s linear infinite;
+  position:absolute;z-index:1;top:-2%;left:50%;width:96%;height:auto;
+  transform:translateX(-50%);opacity:.22;animation:spin 240s linear infinite;
 }
 @keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -156,10 +156,10 @@ nav a:hover::after{transform:scaleX(1)}
   .portrait img{animation:none}
 }
 .portrait figcaption{
-  position:relative;z-index:4;text-align:center;margin:-8% 6% 0;
-  padding-top:18px;border-top:1.5px solid var(--faint);
+  position:relative;z-index:4;text-align:center;margin:0;padding-top:4px;
 }
-.portrait .nm{display:block;font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--chalk);letter-spacing:-.01em}
+.portrait .nm{display:block;font-family:var(--serif);font-size:1.62rem;font-weight:500;
+  color:var(--chalk);letter-spacing:-.01em;line-height:1.2}
 .portrait .rl{display:block;font-size:0.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-top:7px}
 
 /* ---------- Trust — inline, typographic ---------- */
