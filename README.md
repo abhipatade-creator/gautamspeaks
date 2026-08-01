@@ -21,6 +21,29 @@ No build step, no dependencies, no backend. Open `index.html` in a browser and i
 
 ## Features
 
+### Colour palette — "Kesari Dawn"
+
+Grounded in traditional Hindu pigments. Every pair below clears WCAG AA.
+
+| Token | Hex | Role | Contrast on cream |
+|---|---|---|---|
+| `--void` | `#FBF5E9` | Chandan — page surface | — |
+| `--void2` | `#FFFCF4` | Raised panels, menus | — |
+| `--chalk` | `#3D1F14` | Rakta chandan — body text | 13.77:1 (AAA) |
+| `--dim` | `#7D5F4B` | Secondary text | 5.36:1 (AA) |
+| `--faint` | `#E4D6BC` | Hairlines | — |
+| `--amber` | `#B85321` | Kesari — accent, prices, CTAs | 4.50:1 (AA) |
+| `--amber-dim` | `#95431B` | Borders, hover | 6.25:1 (AA) |
+| `--haldi` | `#E8B33C` | Turmeric — decorative fills only | — |
+| `--tulsi` | `#1E6B45` | Favourable / success | 5.96:1 (AA) |
+| `--alert` | `#A83A1E` | Caution | 5.88:1 (AA) |
+
+Kesari was darkened from the source `#D9642A` to `#B85321` — the lightest shade that
+clears 4.5:1 both as text on cream *and* as a button fill behind cream text.
+
+Black is deliberately absent: it is Shani's colour and is avoided at auspicious
+occasions, which is the wrong signal for a site selling wedding muhurats.
+
 ### Multilingual — 10 languages
 English, हिंदी, मराठी, ગુજરાતી, বাংলা, தமிழ், తెలుగు, ಕನ್ನಡ, മലയാളം, ਪੰਜਾਬੀ.
 
