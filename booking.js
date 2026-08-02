@@ -83,12 +83,14 @@
     }
   }
 
-  const SERVICES=['s3_n','s7_n','s2_n','s1_n','s4_n','s8_n','s5_n','s6_n',
+  const SERVICES=['pk1_n','pk2_n','pk3_n','pk4_n',
+                  's3_n','s7_n','s2_n','s1_n','s4_n','s8_n','s5_n','s6_n',
                   'm1_n','m2_n','m3_n','m4_n','rep_title','prod_yantra','prod_bracelet','prod_vastu'];
   /* amount in rupees; 0 = quote on request */
-  const PRICE={s3_n:1500,s7_n:2100,s2_n:999,s1_n:599,s4_n:3800,s8_n:2500,s5_n:9500,s6_n:15000,
+  const PRICE={pk1_n:5200,pk2_n:6300,pk3_n:16500,pk4_n:11800,
+               s3_n:1500,s7_n:2100,s2_n:999,s1_n:599,s4_n:3800,s8_n:2500,s5_n:9500,s6_n:15000,
                m1_n:0,m2_n:1200,m3_n:1500,m4_n:2500,rep_title:0,prod_yantra:0,prod_bracelet:0,prod_vastu:0};
-  const SCHED_KEYS=['s3_n','s7_n','s2_n','s1_n','s4_n','s8_n','s5_n','s6_n','m1_n','m2_n','m3_n','m4_n'];
+  const SCHED_KEYS=['pk1_n','pk2_n','pk3_n','pk4_n','s3_n','s7_n','s2_n','s1_n','s4_n','s8_n','s5_n','s6_n','m1_n','m2_n','m3_n','m4_n'];
   const inr=n=>'\u20B9'+n.toLocaleString('en-IN');
 
   /* Razorpay hook. Set PAY.key to a live key_id to switch payments on;
@@ -178,6 +180,9 @@
   }
 
   document.addEventListener('click', function(e){
+    const pk=e.target.closest('[data-pkg-buy]');
+    if(pk){ e.preventDefault(); const k=pk.dataset.pkgBuy;
+            open(L(k+'_n'), '', true); return; }
     const a=e.target.closest('a[href*="wa.me/"]');
     if(!a) return;
     if(a.classList.contains('bk-skip')) return;

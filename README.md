@@ -127,6 +127,8 @@ Everything lives in `index.html`.
 | Colours / type | CSS custom properties in `:root` |
 | Panchang cities | The `<select id="panPlace">` options — `"lat,lon,Name"` |
 | Service prices | `PRICE` map in `booking.js` (rupees; `0` = quote on request) |
+| Package prices | Same `PRICE` map — `pk1_n` to `pk4_n`. The struck-through "was" figures are in the markup |
+| Package contents | `pk1_i` to `pk4_i` in `i18n.js` — pipe-separated, one bullet per segment |
 | Payment gateway | `PAY.key` in `booking.js` — set a Razorpay `key_id` to switch it on |
 | YouTube Shorts | `SHORTS` array in `shorts.js` — `{ id:'VIDEO_ID', title:'...' }` per Short |
 
