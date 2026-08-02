@@ -208,6 +208,13 @@ cart_empty:"Your cart is empty.",
 cart_checkout:"Checkout",
 cart_added:"added to cart",
 cart_note:"You will confirm the order on WhatsApp. Nothing is charged here.",
+yt_eyebrow:"Watch",
+yt_title:"Shorts from the channel",
+yt_sub:"Quick answers on transits, remedies and Vastu — a minute at a time.",
+yt_all:"See all Shorts on YouTube",
+yt_watch:"Visit the channel",
+yt_nav:"Videos",
+yt_channel:"Visit the channel",
 wa_intro:"Hello, I would like a consultation."
 };
 
@@ -401,6 +408,13 @@ cart_empty:"आपका कार्ट खाली है।",
 cart_checkout:"चेकआउट",
 cart_added:"कार्ट में जोड़ा गया",
 cart_note:"ऑर्डर की पुष्टि व्हाट्सएप पर होगी। यहाँ कोई शुल्क नहीं लिया जाता।",
+yt_eyebrow:"देखिए",
+yt_title:"चैनल से शॉर्ट्स",
+yt_sub:"गोचर, उपाय और वास्तु पर छोटे-छोटे जवाब — एक मिनट में।",
+yt_all:"यूट्यूब पर सभी शॉर्ट्स देखें",
+yt_watch:"चैनल पर जाएँ",
+yt_nav:"वीडियो",
+yt_channel:"चैनल पर जाएँ",
 wa_intro:"नमस्ते, मुझे परामर्श चाहिए।"
 };
 
@@ -594,6 +608,13 @@ cart_empty:"तुमचे कार्ट रिकामे आहे.",
 cart_checkout:"चेकआउट",
 cart_added:"कार्टमध्ये जोडले",
 cart_note:"ऑर्डरची पुष्टी व्हॉट्सअॅपवर होईल. इथे कोणतेही शुल्क आकारले जात नाही.",
+yt_eyebrow:"पहा",
+yt_title:"चॅनेलवरील शॉर्ट्स",
+yt_sub:"गोचर, उपाय आणि वास्तूवर छोटी उत्तरे — एका मिनिटात.",
+yt_all:"यूट्यूबवर सर्व शॉर्ट्स पहा",
+yt_watch:"चॅनेलला भेट द्या",
+yt_nav:"व्हिडिओ",
+yt_channel:"चॅनेलला भेट द्या",
 wa_intro:"नमस्कार, मला सल्लामसलत हवी आहे."
 };
 
@@ -787,6 +808,13 @@ cart_empty:"તમારું કાર્ટ ખાલી છે.",
 cart_checkout:"ચેકઆઉટ",
 cart_added:"કાર્ટમાં ઉમેરાયું",
 cart_note:"ઓર્ડરની પુષ્ટિ વોટ્સએપ પર થશે. અહીં કોઈ શુલ્ક લેવાતું નથી.",
+yt_eyebrow:"જુઓ",
+yt_title:"ચેનલમાંથી શોર્ટ્સ",
+yt_sub:"ગોચર, ઉપાય અને વાસ્તુ પર ટૂંકા જવાબો — એક મિનિટમાં.",
+yt_all:"યુટ્યુબ પર બધા શોર્ટ્સ જુઓ",
+yt_watch:"ચેનલ પર જાઓ",
+yt_nav:"વિડિયો",
+yt_channel:"ચેનલ પર જાઓ",
 wa_intro:"નમસ્તે, મને પરામર્શ જોઈએ છે."
 };
 
@@ -980,6 +1008,13 @@ cart_empty:"আপনার কার্ট খালি।",
 cart_checkout:"চেকআউট",
 cart_added:"কার্টে যোগ হয়েছে",
 cart_note:"অর্ডার নিশ্চিত হবে হোয়াটসঅ্যাপে। এখানে কোনো টাকা নেওয়া হয় না।",
+yt_eyebrow:"দেখুন",
+yt_title:"চ্যানেলের শর্টস",
+yt_sub:"গোচর, প্রতিকার ও বাস্তু নিয়ে ছোট উত্তর — এক মিনিটে।",
+yt_all:"ইউটিউবে সব শর্টস দেখুন",
+yt_watch:"চ্যানেলে যান",
+yt_nav:"ভিডিও",
+yt_channel:"চ্যানেলে যান",
 wa_intro:"নমস্কার, আমি পরামর্শ চাই।"
 };
 
@@ -1173,6 +1208,13 @@ cart_empty:"உங்கள் கூடை காலியாக உள்ள�
 cart_checkout:"செக்அவுட்",
 cart_added:"கூடையில் சேர்க்கப்பட்டது",
 cart_note:"ஆர்டர் வாட்ஸ்அப்பில் உறுதிப்படுத்தப்படும். இங்கே கட்டணம் வசூலிக்கப்படவில்லை.",
+yt_eyebrow:"பாருங்கள்",
+yt_title:"சேனலின் ஷார்ட்ஸ்",
+yt_sub:"கோச்சாரம், பரிகாரம், வாஸ்து குறித்த சுருக்கமான பதில்கள் — ஒரு நிமிடத்தில்.",
+yt_all:"யூடியூபில் அனைத்து ஷார்ட்ஸையும் பார்",
+yt_watch:"சேனலுக்குச் செல்",
+yt_nav:"வீடியோக்கள்",
+yt_channel:"சேனலுக்குச் செல்",
 wa_intro:"வணக்கம், எனக்கு ஆலோசனை வேண்டும்."
 };
 
@@ -1366,6 +1408,13 @@ cart_empty:"మీ కార్ట్ ఖాళీగా ఉంది.",
 cart_checkout:"చెక్అవుట్",
 cart_added:"కార్ట్‌లో చేర్చబడింది",
 cart_note:"ఆర్డర్ వాట్సాప్‌లో నిర్ధారించబడుతుంది. ఇక్కడ ఎలాంటి రుసుము వసూలు చేయబడదు.",
+yt_eyebrow:"చూడండి",
+yt_title:"ఛానెల్ నుండి షార్ట్స్",
+yt_sub:"గోచారం, పరిహారాలు, వాస్తు గురించి చిన్న సమాధానాలు — ఒక నిమిషంలో.",
+yt_all:"యూట్యూబ్‌లో అన్ని షార్ట్స్ చూడండి",
+yt_watch:"ఛానెల్‌ను సందర్శించండి",
+yt_nav:"వీడియోలు",
+yt_channel:"ఛానెల్‌ను సందర్శించండి",
 wa_intro:"నమస్తే, నాకు సంప్రదింపు కావాలి."
 };
 
@@ -1559,6 +1608,13 @@ cart_empty:"ನಿಮ್ಮ ಕಾರ್ಟ್ ಖಾಲಿಯಾಗಿದೆ.",
 cart_checkout:"ಚೆಕ್‌ಔಟ್",
 cart_added:"ಕಾರ್ಟ್‌ಗೆ ಸೇರಿಸಲಾಗಿದೆ",
 cart_note:"ಆರ್ಡರ್ ವಾಟ್ಸ್‌ಆ್ಯಪ್‌ನಲ್ಲಿ ದೃಢಪಡಿಸಲಾಗುತ್ತದೆ. ಇಲ್ಲಿ ಯಾವ ಶುಲ್ಕವೂ ಇಲ್ಲ.",
+yt_eyebrow:"ನೋಡಿ",
+yt_title:"ಚಾನೆಲ್‌ನ ಶಾರ್ಟ್ಸ್",
+yt_sub:"ಗೋಚಾರ, ಪರಿಹಾರ ಮತ್ತು ವಾಸ್ತು ಕುರಿತ ಸಣ್ಣ ಉತ್ತರಗಳು — ಒಂದು ನಿಮಿಷದಲ್ಲಿ.",
+yt_all:"ಯೂಟ್ಯೂಬ್‌ನಲ್ಲಿ ಎಲ್ಲಾ ಶಾರ್ಟ್ಸ್ ನೋಡಿ",
+yt_watch:"ಚಾನೆಲ್‌ಗೆ ಭೇಟಿ ನೀಡಿ",
+yt_nav:"ವಿಡಿಯೋಗಳು",
+yt_channel:"ಚಾನೆಲ್‌ಗೆ ಭೇಟಿ ನೀಡಿ",
 wa_intro:"ನಮಸ್ಕಾರ, ನನಗೆ ಸಮಾಲೋಚನೆ ಬೇಕು."
 };
 
@@ -1752,6 +1808,13 @@ cart_empty:"നിങ്ങളുടെ കാർട്ട് ശൂന്യമ
 cart_checkout:"ചെക്ക്ഔട്ട്",
 cart_added:"കാർട്ടിൽ ചേർത്തു",
 cart_note:"ഓർഡർ വാട്ട്‌സ്ആപ്പിൽ സ്ഥിരീകരിക്കും. ഇവിടെ പണം ഈടാക്കുന്നില്ല.",
+yt_eyebrow:"കാണൂ",
+yt_title:"ചാനലിൽ നിന്നുള്ള ഷോർട്ട്‌സ്",
+yt_sub:"ഗോചരം, പരിഹാരങ്ങൾ, വാസ്തു എന്നിവയെക്കുറിച്ച് ചെറിയ ഉത്തരങ്ങൾ — ഒരു മിനിറ്റിൽ.",
+yt_all:"യൂട്യൂബിൽ എല്ലാ ഷോർട്ട്‌സും കാണൂ",
+yt_watch:"ചാനൽ സന്ദർശിക്കൂ",
+yt_nav:"വീഡിയോകൾ",
+yt_channel:"ചാനൽ സന്ദർശിക്കൂ",
 wa_intro:"നമസ്കാരം, എനിക്ക് കൺസൾട്ടേഷൻ വേണം."
 };
 
@@ -1945,6 +2008,13 @@ cart_empty:"ਤੁਹਾਡਾ ਕਾਰਟ ਖਾਲੀ ਹੈ।",
 cart_checkout:"ਚੈੱਕਆਊਟ",
 cart_added:"ਕਾਰਟ ਵਿੱਚ ਜੋੜਿਆ",
 cart_note:"ਆਰਡਰ ਦੀ ਪੁਸ਼ਟੀ ਵਟਸਐਪ ਤੇ ਹੋਵੇਗੀ। ਇੱਥੇ ਕੋਈ ਫੀਸ ਨਹੀਂ ਲਈ ਜਾਂਦੀ।",
+yt_eyebrow:"ਵੇਖੋ",
+yt_title:"ਚੈਨਲ ਤੋਂ ਸ਼ਾਰਟਸ",
+yt_sub:"ਗੋਚਰ, ਉਪਾਅ ਤੇ ਵਾਸਤੂ ਬਾਰੇ ਛੋਟੇ ਜਵਾਬ — ਇੱਕ ਮਿੰਟ ਵਿੱਚ।",
+yt_all:"ਯੂਟਿਊਬ ਤੇ ਸਾਰੇ ਸ਼ਾਰਟਸ ਵੇਖੋ",
+yt_watch:"ਚੈਨਲ ਤੇ ਜਾਓ",
+yt_nav:"ਵੀਡੀਓ",
+yt_channel:"ਚੈਨਲ ਤੇ ਜਾਓ",
 wa_intro:"ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਨੂੰ ਸਲਾਹ ਚਾਹੀਦੀ ਹੈ।"
 };
 
@@ -1991,7 +2061,7 @@ function setLang(code){
 
   document.documentElement.lang = current;
   const meta = LANGS.find(function(L){ return L.code === current; });
-  document.getElementById('langLabel').textContent = meta ? meta.name : 'English';
+  document.getElementById('langLabel').textContent = meta ? meta.code : 'en';
   menu.querySelectorAll('button').forEach(function(b){
     b.setAttribute('aria-current', b.dataset.code === current ? 'true' : 'false');
   });

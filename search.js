@@ -62,6 +62,17 @@
   const panel = document.getElementById('searchPanel');
   let items = [], active = -1;
 
+  /* collapsed by default; the icon is the affordance */
+  box.addEventListener('click', function(e){
+    if(box.classList.contains('is-open')) return;
+    box.classList.add('is-open'); input.focus();
+  });
+  function collapse(){
+    if(input.value.trim()) return;
+    box.classList.remove('is-open'); panel.hidden = true;
+  }
+  input.addEventListener('blur', ()=>setTimeout(collapse,140));
+
   const norm = s => (s||'').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'');
   const label = k => ((typeof T !== 'undefined' && T[current] && T[current][k]) || (typeof T !== 'undefined' && T.en[k]) || k);
   const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Shorts setup — Gautam Speaks</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{padding:48px 24px 90px}
+.tool{max-width:880px;margin:0 auto}
+.tool h1{font-size:2rem;margin-bottom:10px}
+.tool > p{color:var(--dim);max-width:64ch;margin-bottom:32px}
+textarea#paste{min-height:150px;font-family:ui-monospace,monospace;font-size:.86rem;
+  border:1.5px solid var(--faint);border-radius:var(--r);padding:14px 16px;background:var(--void2)}
+#out{width:100%;min-height:150px;font-family:ui-monospace,monospace;font-size:.82rem;
+  border:1.5px solid var(--faint);border-radius:var(--r);padding:14px 16px;background:var(--void2);
+  white-space:pre;overflow:auto}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 10px}
+.ok{color:var(--tulsi);font-size:.86rem}
+.step{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);
+  margin:38px 0 12px;display:block}
+</style></head><body>
+<div class="tool">
+  <h1>Shorts setup</h1>
+  <p>Paste your Shorts links below — one per line, in any format. This page turns them into the
+     array that <code>shorts.js</code> expects, and previews exactly how the strip and the
+     pop-up player will look on the site. Nothing here is published; this page is
+     <code>noindex</code> and is only for you.</p>
+
+  <span class="step">1 — Paste links</span>
+  <textarea id="paste" placeholder="https://www.youtube.com/shorts/AbCdEfGh123
+https://youtube.com/shorts/XyZ98765432  Guru gochar for Vrishchik
+QwErTy09876  Rahu Kaal explained"></textarea>
+  <p class="form-note">Optional: add a title after the link, separated by two spaces.</p>
+  <div class="row">
+    <button class="btn btn-fill" id="go">Generate</button>
+    <button class="btn" id="copy">Copy the array</button>
+    <span class="ok" id="msg"></span>
+  </div>
+
+  <span class="step">2 — Copy this into shorts.js</span>
+  <div id="out">const SHORTS = [
+];</div>
+
+  <span class="step">3 — Preview</span>
+  <div id="shortsRail" class="shorts-empty"></div>
+  <p class="rashi-note"><a id="shortsMore" href="https://www.youtube.com/@gautamspeaks09/shorts" target="_blank" rel="noopener">See all Shorts on YouTube</a></p>
+</div>
+
+<script src="i18n.js"></script>
+<script src="shorts.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  function parse(){
+    return $('paste').value.split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{
+      const parts=l.split(/\s{2,}|\t/);
+      return {id:parts[0], title:(parts[1]||'').trim()};
+    });
+  }
+  function build(){
+    const list=normalise(parse());
+    $('out').textContent='const SHORTS = [\n'+list.map(s=>
+      "  { id:'"+s.id+"'"+(s.title?", title:'"+s.title.replace(/'/g,"\\'")+"'":'')+" },").join('\n')+'\n];';
+    SHORTS.length=0; list.forEach(s=>SHORTS.push(s));
+    window.dispatchEvent(new Event('gs:lang'));
+    $('msg').textContent=list.length? '✓ '+list.length+' Short'+(list.length>1?'s':'')+' — click a thumbnail to test the player' : '';
+  }
+  $('go').addEventListener('click',build);
+  $('paste').addEventListener('input',build);
+  $('copy').addEventListener('click',async()=>{
+    try{ await navigator.clipboard.writeText($('out').textContent); $('msg').textContent='✓ Copied'; }
+    catch(e){ $('msg').textContent='Select the box and copy manually.'; }
+  });
+})();
+</script>
+</body></html>

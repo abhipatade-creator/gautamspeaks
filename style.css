@@ -795,3 +795,121 @@ header{overflow:visible}
   .pdp-specs dl{grid-template-columns:1fr}
   .cart{width:100%}
 }
+
+/* ---------- First block under the header ----------
+   .sec carries 130px for rhythm between mid-page sections, but that is far
+   too much directly under a sticky header. Any first block gets a tighter
+   top so the page starts where the eye expects it. */
+header + section,
+header + .cart-scrim + section,
+.pdp{padding-top:40px}
+.pdp .crumb{margin-bottom:22px}
+.shop-hero{padding-top:44px}
+.rashi-hero{padding-top:38px}
+.hero{padding-top:72px}
+@media(max-width:900px){
+  header + section,
+  header + .cart-scrim + section,
+  .pdp{padding-top:26px}
+  .shop-hero{padding-top:28px}
+  .rashi-hero{padding-top:24px}
+  .hero{padding-top:40px}
+}
+
+/* ---------- Header, refined ----------
+   Was: topbar row + 6 nav items + a 236px search field + cart + language
+   name + CTA. Now one row, four nav items, and compact icon controls. */
+header{border-top:0}
+header .wrap{gap:22px}
+.head-right{gap:14px}
+.hicon{display:flex;align-items:center;justify-content:center;width:34px;height:34px;
+  color:var(--chalk);border-radius:var(--r);transition:color .2s,background .2s}
+.hicon:hover{color:var(--amber);background:rgba(184,83,33,.07)}
+.cart-open{width:34px;height:34px;justify-content:center;border-radius:var(--r);transition:background .2s}
+.cart-open:hover{background:rgba(184,83,33,.07)}
+
+/* search collapses to an icon and expands on demand */
+.searchbox{min-width:0;width:34px;height:34px;padding:0;border-color:transparent;
+  overflow:hidden;transition:width .28s cubic-bezier(.2,.7,.3,1),border-color .2s,background .2s;
+  cursor:pointer;justify-content:center;background:none}
+.searchbox:hover{background:rgba(184,83,33,.07)}
+.searchbox > svg{width:17px;height:17px;color:var(--chalk);margin:0;flex-shrink:0}
+.searchbox:hover > svg{color:var(--amber)}
+#searchInput{width:0;opacity:0;transition:opacity .2s;padding:0}
+.searchbox.is-open{width:min(268px,34vw);padding:0 12px;border-color:var(--faint);
+  background:var(--void);cursor:auto;justify-content:flex-start;gap:9px}
+.searchbox.is-open > svg{color:var(--dim)}
+.searchbox.is-open #searchInput{width:100%;opacity:1}
+.sx-panel{min-width:268px}
+
+/* language: globe plus a two-letter code */
+.langbtn{border-bottom:0;padding:0 8px;height:34px;border-radius:var(--r);gap:6px;
+  text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+.langbtn:hover{background:rgba(184,83,33,.07)}
+#langLabel{font-weight:500}
+nav{gap:26px}
+
+@media(max-width:900px){
+  header .wrap{gap:12px}
+  .searchbox{order:0}
+  .searchbox.is-open{position:absolute;left:20px;right:20px;top:100%;width:auto;
+    margin-top:8px;height:44px;background:var(--void2);z-index:140}
+  .hicon{width:32px;height:32px}
+}
+
+/* ---------- YouTube Shorts ---------- */
+.shorts-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);
+  gap:16px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
+.shorts-rail::-webkit-scrollbar{height:8px}
+.shorts-rail::-webkit-scrollbar-thumb{background:var(--faint);border-radius:99px}
+.short{position:relative;aspect-ratio:9/16;border:1.5px solid var(--faint);border-radius:var(--r);
+  overflow:hidden;background:var(--void2);padding:0;cursor:pointer;scroll-snap-align:start;
+  transition:border-color .25s,transform .25s}
+.short:hover{border-color:var(--amber);transform:translateY(-3px)}
+.short img{width:100%;height:100%;object-fit:cover;display:block}
+.short-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6);
+  background:linear-gradient(transparent 40%,rgba(0,0,0,.45))}
+.short-t{position:absolute;left:0;right:0;bottom:0;padding:12px 12px 14px;color:#fff;
+  font-size:.82rem;line-height:1.35;text-align:left;
+  background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.shorts-empty{display:block}
+.yt-card{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:26px 28px;
+  background:var(--void2);border:1.5px solid var(--faint);border-radius:var(--r)}
+.yt-ico{color:#c4302b;display:flex;flex-shrink:0}
+.yt-card b{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:400}
+.yt-card span{font-size:.85rem;color:var(--dim)}
+.yt-card .btn{margin-left:auto}
+.yt-scrim{position:fixed;inset:0;background:rgba(61,31,20,.6);z-index:460;display:flex;
+  align-items:center;justify-content:center;padding:4vh 20px}
+.yt-scrim[hidden]{display:none}
+.yt-box{position:relative;width:min(420px,100%);aspect-ratio:9/16;background:#000;
+  border-radius:var(--r);overflow:hidden}
+.yt-box iframe{width:100%;height:100%;border:0;display:block}
+.yt-box .bk-x{color:#fff;background:rgba(0,0,0,.45);border-radius:99px;top:10px;right:10px}
+@media(max-width:900px){
+  .shorts-rail{grid-auto-columns:minmax(150px,1fr)}
+  .yt-card .btn{margin-left:0;width:100%}
+}
+
+/* Shorts thumbnails are 9:16 crops; oar/hq both work, object-fit handles the rest */
+.short img{background:var(--void2)}
+
+/* ---------- Shorts rail: header bar + arrows ---------- */
+.shorts-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;margin:-26px 0 26px}
+.shorts-bar .btn{display:inline-flex;align-items:center;gap:9px}
+.rail-nav{display:flex;gap:8px}
+.rail-btn{width:38px;height:38px;border:1.5px solid var(--faint);border-radius:var(--r);
+  background:var(--void);color:var(--chalk);font-size:1.2rem;line-height:1;cursor:pointer;
+  transition:all .2s}
+.rail-btn:hover:not(:disabled){border-color:var(--amber);color:var(--amber)}
+.rail-btn:disabled{opacity:.35;cursor:default}
+.shorts-rail{scroll-behavior:smooth;scrollbar-width:thin}
+.shorts-rail::-webkit-scrollbar{height:6px}
+.shorts-rail::-webkit-scrollbar-thumb{background:var(--faint);border-radius:99px}
+@media(max-width:900px){
+  .rail-nav{display:none}          /* swipe is the affordance on touch */
+  .shorts-bar{margin:-18px 0 20px}
+  .shorts-bar .btn{width:100%;justify-content:center}
+}

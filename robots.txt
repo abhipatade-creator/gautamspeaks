@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /portrait-options.html
+Disallow: /shorts-setup.html
 
 Sitemap: https://gautamspeaks.com/sitemap.xml
