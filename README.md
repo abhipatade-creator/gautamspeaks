@@ -83,8 +83,15 @@ Outputs Tithi with paksha, Nakshatra with pada, Yoga, Karana, Vara, Moon and Sun
 ### Chandra Bala (not a fabricated horoscope)
 Computes today's Moon position counted from each of the 12 janma rashis and applies the classical rule — 1, 3, 6, 7, 10, 11 favourable; 4, 8, 12 difficult (8th being Chandrashtama); the rest neutral. Recalculated live, every day.
 
-### Numerology calculator
-Moolank, Bhagyank and mobile-number vibration with ruling planets, plus a compatibility verdict from standard friendship sets. Runs entirely client-side — nothing is stored or transmitted.
+### Birth details tool
+Date and time of birth in; janma rashi with its lord, nakshatra with pada and
+lord, tithi with paksha, vara, sun sign, yoga, karana, plus Moolank and
+Bhagyank with ruling planets. Uses `Panchang.atMoment()`, which evaluates the
+chart at the exact birth instant rather than at sunrise.
+
+Lagna is deliberately absent — it needs the birth *place*, and the copy says so
+rather than pretending otherwise. Runs entirely client-side; nothing is stored
+or transmitted.
 
 ### Other
 - Mega-menu navigation, 43 destinations, hover-intent on desktop and accordion on mobile

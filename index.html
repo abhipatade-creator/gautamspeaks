@@ -536,28 +536,38 @@
       <p class="rashi-note" data-i18n="moon_note">This is Chandra Bala &mdash; where today&rsquo;s Moon sits counted from your janma rashi. It is one factor among many, not a verdict on your day.</p>
     </div>
 
-    <!-- ---------- NUMEROLOGY ---------- -->
+    <!-- ---------- BIRTH DETAILS ---------- -->
     <div class="panel" id="tab-num">
       <div class="calc-grid">
         <div>
-          <p class="calc-lead" data-i18n="calc_sub">Work out your Moolank, Bhagyank and mobile number vibration in seconds.</p>
-          <p class="rashi-note" data-i18n="calc_note">This is the same calculation our Mobile Numerology consultation starts from &mdash; the paid reading goes on to interpret it against your full chart.</p>
+          <p class="calc-lead" data-i18n="calc_sub">Your janma rashi, nakshatra and birth numbers &mdash; worked out from the moment you were born.</p>
+          <p class="rashi-note" data-i18n="calc_note">This is the same calculation our consultations start from &mdash; the paid reading goes on to interpret it against your full chart.</p>
+          <p class="rashi-note" data-i18n="calc_lagna">Your ascendant (lagna) also needs your birth <em>place</em>, so it is not shown here. Send your details on WhatsApp and we will work it out.</p>
         </div>
         <form id="calcForm" novalidate>
-          <div class="field">
-            <label for="cdob" data-i18n="calc_dob">Date of birth</label>
-            <input id="cdob" type="date" required>
-          </div>
-          <div class="field">
-            <label for="cmob" data-i18n="calc_mobile">Mobile number (optional)</label>
-            <input id="cmob" type="tel" inputmode="numeric" placeholder="9876543210">
+          <div class="bk-row">
+            <div class="field">
+              <label for="cdob" data-i18n="calc_dob">Date of birth</label>
+              <input id="cdob" type="date" required>
+            </div>
+            <div class="field">
+              <label for="ctob" data-i18n="calc_time">Time of birth</label>
+              <input id="ctob" type="time" value="12:00">
+            </div>
           </div>
           <button type="submit" class="btn btn-fill btn-block" data-i18n="calc_btn">Calculate</button>
+
           <div id="calcOut" class="calc-out" hidden>
-            <div class="cres">
-              <div><span class="cl" data-i18n="calc_moolank">Moolank</span><b id="rMool">&mdash;</b><em id="pMool"></em></div>
-              <div><span class="cl" data-i18n="calc_bhagyank">Bhagyank</span><b id="rBhag">&mdash;</b><em id="pBhag"></em></div>
-              <div id="cMobWrap"><span class="cl" data-i18n="calc_mobnum">Mobile number</span><b id="rMob">&mdash;</b><em id="pMob"></em></div>
+            <div class="pan-grid">
+              <div class="pcell"><span class="pl" data-i18n="calc_janma">Janma rashi</span><b id="rRashi">&mdash;</b><em id="rRashiL"></em></div>
+              <div class="pcell"><span class="pl" data-i18n="pan_nak">Nakshatra</span><b id="rNak">&mdash;</b><em id="rPada"></em></div>
+              <div class="pcell"><span class="pl" data-i18n="pan_tithi">Tithi</span><b id="rTithi">&mdash;</b><em id="rPaksha"></em></div>
+              <div class="pcell"><span class="pl" data-i18n="pan_vara">Vara</span><b id="rVara">&mdash;</b></div>
+              <div class="pcell"><span class="pl" data-i18n="pan_sun">Sun sign</span><b id="rSun">&mdash;</b></div>
+              <div class="pcell"><span class="pl" data-i18n="pan_yoga">Yoga</span><b id="rYoga">&mdash;</b></div>
+              <div class="pcell"><span class="pl" data-i18n="pan_karana">Karana</span><b id="rKarana">&mdash;</b></div>
+              <div class="pcell"><span class="pl" data-i18n="calc_moolank">Moolank</span><b id="rMool">&mdash;</b><em id="pMool"></em></div>
+              <div class="pcell"><span class="pl" data-i18n="calc_bhagyank">Bhagyank</span><b id="rBhag">&mdash;</b><em id="pBhag"></em></div>
             </div>
             <p class="verdict" id="rVerdict"></p>
             <a id="calcWa" class="btn btn-block" href="https://wa.me/919769759215" target="_blank" rel="noopener" data-i18n="calc_cta">Send this to Acharya Gautam</a>
@@ -914,64 +924,60 @@ navEl.querySelectorAll('a:not(.navtop)').forEach(function(a){
   render();
 })();
 
-/* ---------- Numerology calculator (Moolank / Bhagyank / mobile vibration) ---------- */
+/* ---------- Birth details: janma rashi, nakshatra and birth numbers ---------- */
 (function(){
   const form = document.getElementById('calcForm');
   if (!form) return;
   const PLANET = {1:'Surya',2:'Chandra',3:'Guru',4:'Rahu',5:'Budh',6:'Shukra',7:'Ketu',8:'Shani',9:'Mangal'};
-  /* Standard Indian numerology friendship sets */
-  const FRIEND = {1:[1,2,3,5,6,9],2:[1,2,3,5,7,9],3:[1,2,3,5,6,7,9],4:[1,4,5,6,7,8],
-                  5:[1,2,3,4,5,6,7,9],6:[1,3,4,5,6,7,8],7:[2,3,4,6,7,8],8:[4,5,6,7,8],9:[1,2,3,5,6,9]};
+  const RLORD  = {Mesh:'Mangal',Vrishabh:'Shukra',Mithun:'Budh',Kark:'Chandra',Simha:'Surya',
+                  Kanya:'Budh',Tula:'Shukra',Vrishchik:'Mangal',Dhanu:'Guru',Makar:'Shani',
+                  Kumbh:'Shani',Meen:'Guru'};
+  const NLORD  = ['Ketu','Shukra','Surya','Chandra','Mangal','Rahu','Guru','Shani','Budh'];
 
   function reduce(n){ while (n > 9) n = String(n).split('').reduce(function(a,d){return a + (+d);},0); return n; }
   function digitsOf(s){ return (s.match(/\d/g) || []).map(Number); }
+  const L = k => ((typeof T!=='undefined' && T[current] && T[current][k]) || (typeof T!=='undefined' && T.en[k]) || k);
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    const pack = T[current] || T.en;
     const dob = document.getElementById('cdob').value;
-    if (!dob) { document.getElementById('cdob').focus(); return; }
+    if (!dob){ document.getElementById('cdob').focus(); return; }
+    const tob = document.getElementById('ctob').value || '12:00';
+    const p = dob.split('-'), t = tob.split(':');
+    const when = new Date(+p[0], +p[1]-1, +p[2], +t[0], +t[1]);
 
-    const parts = dob.split('-');                 // yyyy-mm-dd
-    const day = +parts[2];
-    const moolank = reduce(day);
+    const moolank  = reduce(+p[2]);
     const bhagyank = reduce(digitsOf(dob).reduce(function(a,d){return a+d;},0));
+    const set = function(id,v){ document.getElementById(id).textContent = v; };
+    set('rMool', moolank); set('pMool', PLANET[moolank]);
+    set('rBhag', bhagyank); set('pBhag', PLANET[bhagyank]);
 
-    document.getElementById('rMool').textContent = moolank;
-    document.getElementById('pMool').textContent = PLANET[moolank];
-    document.getElementById('rBhag').textContent = bhagyank;
-    document.getElementById('pBhag').textContent = PLANET[bhagyank];
-
-    const raw = digitsOf(document.getElementById('cmob').value);
-    let mob = null;
-    const wrap = document.getElementById('cMobWrap');
-    if (raw.length >= 10) {
-      mob = reduce(raw.reduce(function(a,d){return a+d;},0));
-      document.getElementById('rMob').textContent = mob;
-      document.getElementById('pMob').textContent = PLANET[mob];
-      wrap.hidden = false;
-    } else {
-      wrap.hidden = true;
+    let B = null;
+    if (typeof Panchang !== 'undefined'){
+      B = Panchang.atMoment(when);
+      set('rRashi', B.moonRashi);  set('rRashiL', RLORD[B.moonRashi] || '');
+      set('rNak',   B.nak);        set('rPada', 'Pada ' + B.pada + ' · ' + NLORD[B.nakIdx % 9]);
+      set('rTithi', B.tithiName);  set('rPaksha', B.paksha);
+      set('rVara',  B.vara);       set('rSun', B.sunRashi);
+      set('rYoga',  B.yoga);       set('rKarana', B.karana);
     }
 
-    let verdict;
-    if (mob === null) {
-      verdict = pack.calc_nomob || T.en.calc_nomob;
-    } else if (FRIEND[moolank].indexOf(mob) > -1) {
-      verdict = (pack.calc_good || T.en.calc_good);
-    } else if (Math.abs(moolank - mob) <= 1) {
-      verdict = (pack.calc_ok || T.en.calc_ok);
-    } else {
-      verdict = (pack.calc_check || T.en.calc_check);
-    }
-    document.getElementById('rVerdict').textContent = verdict;
+    document.getElementById('rVerdict').textContent =
+      (L('calc_summary') || '').replace('{rashi}', B ? B.moonRashi : '')
+                               .replace('{nak}',   B ? B.nak : '')
+                               .replace('{mool}',  moolank)
+                               .replace('{planet}',PLANET[moolank]);
 
-    const lines = [
-      pack.wa_intro || T.en.wa_intro, '',
-      (pack.calc_moolank || 'Moolank') + ': ' + moolank + ' (' + PLANET[moolank] + ')',
-      (pack.calc_bhagyank || 'Bhagyank') + ': ' + bhagyank + ' (' + PLANET[bhagyank] + ')'
-    ];
-    if (mob !== null) lines.push((pack.calc_mobnum || 'Mobile number') + ': ' + mob + ' (' + PLANET[mob] + ')');
+    const lines = [ L('wa_intro'), '',
+      L('calc_dob')  + ': ' + dob,
+      L('calc_time') + ': ' + tob ];
+    if (B){
+      lines.push(L('calc_janma') + ': ' + B.moonRashi,
+                 L('pan_nak')    + ': ' + B.nak + ' (pada ' + B.pada + ')',
+                 L('pan_tithi')  + ': ' + B.tithiName + ' · ' + B.paksha);
+    }
+    lines.push(L('calc_moolank')  + ': ' + moolank  + ' (' + PLANET[moolank] + ')',
+               L('calc_bhagyank') + ': ' + bhagyank + ' (' + PLANET[bhagyank] + ')');
     document.getElementById('calcWa').href =
       'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(lines.join('\n'));
 

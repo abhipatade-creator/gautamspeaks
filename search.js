@@ -131,7 +131,11 @@
     else if (e.key==='Enter' && active>-1){ e.preventDefault(); window.location.href = items[active].href; }
     else if (e.key==='Escape'){ panel.hidden=true; input.blur(); }
   });
-  document.addEventListener('click', function(e){ if(!box.contains(e.target)) panel.hidden = true; });
+  document.addEventListener('click', function(e){
+    if (box.contains(e.target)) return;
+    panel.hidden = true;
+    box.classList.remove('is-open');
+  });
   window.addEventListener('gs:lang', function(){
     input.placeholder = label('search_ph');
     if (input.value.trim()) render(input.value.trim());

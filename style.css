@@ -830,17 +830,18 @@ header .wrap{gap:22px}
 
 /* search collapses to an icon and expands on demand */
 .searchbox{min-width:0;width:34px;height:34px;padding:0;border-color:transparent;
-  overflow:hidden;transition:width .28s cubic-bezier(.2,.7,.3,1),border-color .2s,background .2s;
+  overflow:visible;transition:width .28s cubic-bezier(.2,.7,.3,1),border-color .2s,background .2s;
   cursor:pointer;justify-content:center;background:none}
 .searchbox:hover{background:rgba(184,83,33,.07)}
 .searchbox > svg{width:17px;height:17px;color:var(--chalk);margin:0;flex-shrink:0}
 .searchbox:hover > svg{color:var(--amber)}
-#searchInput{width:0;opacity:0;transition:opacity .2s;padding:0}
+#searchInput{width:0;min-width:0;opacity:0;transition:opacity .2s;padding:0;border:0;
+  pointer-events:none}
 .searchbox.is-open{width:min(268px,34vw);padding:0 12px;border-color:var(--faint);
   background:var(--void);cursor:auto;justify-content:flex-start;gap:9px}
 .searchbox.is-open > svg{color:var(--dim)}
-.searchbox.is-open #searchInput{width:100%;opacity:1}
-.sx-panel{min-width:268px}
+.searchbox.is-open #searchInput{width:100%;opacity:1;pointer-events:auto}
+.sx-panel{min-width:300px;right:0;left:auto}
 
 /* language: globe plus a two-letter code */
 .langbtn{border-bottom:0;padding:0 8px;height:34px;border-radius:var(--r);gap:6px;
@@ -880,13 +881,41 @@ nav{gap:26px}
 .yt-card b{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:400}
 .yt-card span{font-size:.85rem;color:var(--dim)}
 .yt-card .btn{margin-left:auto}
-.yt-scrim{position:fixed;inset:0;background:rgba(61,31,20,.6);z-index:460;display:flex;
-  align-items:center;justify-content:center;padding:4vh 20px}
+.yt-scrim{position:fixed;inset:0;background:rgba(61,31,20,.72);z-index:460;display:flex;
+  align-items:center;justify-content:center;gap:14px;padding:3vh 16px}
 .yt-scrim[hidden]{display:none}
-.yt-box{position:relative;width:min(420px,100%);aspect-ratio:9/16;background:#000;
-  border-radius:var(--r);overflow:hidden}
-.yt-box iframe{width:100%;height:100%;border:0;display:block}
-.yt-box .bk-x{color:#fff;background:rgba(0,0,0,.45);border-radius:99px;top:10px;right:10px}
+.yt-stage{display:flex;flex-direction:column;align-items:center;gap:12px;max-height:94vh}
+
+/* The YouTube iframe player always lays out 16:9 and letterboxes a vertical
+   video. To fill a 9:16 frame we make the player wide enough that its
+   pillarboxed video is exactly the frame width, then crop the sides.
+   frame 9:16 -> player width = frame width x (16/9)^2 = 316%. */
+.yt-box{position:relative;height:min(88vh,820px);aspect-ratio:9/16;width:auto;max-width:100%;
+  overflow:hidden;border-radius:var(--r);background:#000}
+.yt-box iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  height:100%;width:316%;border:0;display:block;pointer-events:auto}
+.yt-box .bk-x{position:absolute;color:#fff;background:rgba(0,0,0,.5);border-radius:99px;
+  top:10px;right:10px;z-index:3;width:34px;height:34px;display:flex;align-items:center;
+  justify-content:center;padding:0}
+.yt-meta{display:flex;align-items:center;gap:14px;color:#fff;font-size:.85rem;opacity:.9;
+  max-width:min(100%,420px)}
+.yt-meta i{font-style:normal;font-size:.75rem;letter-spacing:.1em;opacity:.7;margin-left:auto;
+  white-space:nowrap}
+.yt-nav{width:46px;height:46px;flex-shrink:0;border:1.5px solid rgba(255,255,255,.35);
+  border-radius:99px;background:rgba(0,0,0,.35);color:#fff;font-size:1.5rem;line-height:1;
+  cursor:pointer;transition:all .2s}
+.yt-nav:hover:not(:disabled){background:var(--amber);border-color:var(--amber)}
+.yt-nav:disabled{opacity:.25;cursor:default}
+@media(max-width:760px){
+  .yt-scrim{gap:0;padding:0}
+  .yt-box{height:100vh;height:100dvh;border-radius:0;max-width:none}
+  .yt-stage{max-height:none;gap:0}
+  .yt-meta{position:fixed;left:14px;right:76px;bottom:16px;z-index:3;max-width:none;
+    text-shadow:0 1px 6px rgba(0,0,0,.8)}
+  .yt-nav{position:fixed;right:14px;z-index:4;width:42px;height:42px}
+  .yt-prev{bottom:74px}
+  .yt-next{bottom:24px}
+}
 @media(max-width:900px){
   .shorts-rail{grid-auto-columns:minmax(150px,1fr)}
   .yt-card .btn{margin-left:0;width:100%}

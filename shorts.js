@@ -70,34 +70,53 @@ function normalise(list){
   /* lightbox — the iframe is created on click, never on page load */
   const scrim = document.createElement('div');
   scrim.className = 'yt-scrim'; scrim.hidden = true;
-  scrim.innerHTML = '<div class="yt-box"><button class="bk-x" id="ytX" aria-label="Close">✕</button>'
-                  + '<div id="ytSlot"></div></div>';
+  scrim.innerHTML =
+      '<button class="yt-nav yt-prev" id="ytPrev" aria-label="Previous">&#8249;</button>'
+    + '<div class="yt-stage">'
+    + '  <div class="yt-box"><button class="bk-x" id="ytX" aria-label="Close">&#10005;</button>'
+    + '  <div id="ytSlot"></div></div>'
+    + '  <p class="yt-meta"><span id="ytTitle"></span><i id="ytCount"></i></p>'
+    + '</div>'
+    + '<button class="yt-nav yt-next" id="ytNext" aria-label="Next">&#8250;</button>';
   function mount(){ if(!scrim.parentNode && document.body) document.body.appendChild(scrim); }
   document.addEventListener('DOMContentLoaded', mount); mount();
 
+  let cur = -1;
+
+  function play(i){
+    if (i < 0 || i >= LIST.length) return;
+    cur = i;
+    const s = LIST[i];
+    mount();
+    /* playsinline keeps iOS from taking over with its native player */
+    document.getElementById('ytSlot').innerHTML =
+      '<iframe src="https://www.youtube-nocookie.com/embed/' + s.id
+      + '?autoplay=1&rel=0&playsinline=1&modestbranding=1" '
+      + 'title="' + (s.title || 'Short') + '" allow="autoplay; encrypted-media; picture-in-picture" '
+      + 'allowfullscreen frameborder="0"></iframe>';
+    document.getElementById('ytTitle').textContent = s.title || '';
+    document.getElementById('ytCount').textContent = (i+1) + ' / ' + LIST.length;
+    document.getElementById('ytPrev').disabled = (i === 0);
+    document.getElementById('ytNext').disabled = (i === LIST.length - 1);
+    scrim.hidden = false; document.body.style.overflow = 'hidden';
+  }
+  function shut(){
+    document.getElementById('ytSlot').innerHTML = '';   /* stops playback */
+    scrim.hidden = true; document.body.style.overflow = ''; cur = -1;
+  }
+
   document.addEventListener('click', function(e){
     const b = e.target.closest('.short');
-    if (b){
-      const s = LIST[+b.dataset.i]; if(!s) return;
-      mount();
-      document.getElementById('ytSlot').innerHTML =
-        '<iframe src="https://www.youtube-nocookie.com/embed/' + s.id + '?autoplay=1&rel=0" '
-        + 'title="' + (s.title||'Short') + '" allow="autoplay; encrypted-media" '
-        + 'allowfullscreen frameborder="0"></iframe>';
-      scrim.hidden = false; document.body.style.overflow = 'hidden';
-      document.getElementById('ytX').focus();
-      return;
-    }
-    if (e.target.id === 'ytX' || e.target === scrim){
-      document.getElementById('ytSlot').innerHTML = '';
-      scrim.hidden = true; document.body.style.overflow = '';
-    }
+    if (b){ play(+b.dataset.i); return; }
+    if (e.target.closest('#ytPrev')){ play(cur - 1); return; }
+    if (e.target.closest('#ytNext')){ play(cur + 1); return; }
+    if (e.target.id === 'ytX' || e.target === scrim) shut();
   });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && !scrim.hidden){
-      document.getElementById('ytSlot').innerHTML = '';
-      scrim.hidden = true; document.body.style.overflow = '';
-    }
+    if (scrim.hidden) return;
+    if (e.key === 'Escape')     shut();
+    if (e.key === 'ArrowLeft')  play(cur - 1);
+    if (e.key === 'ArrowRight') play(cur + 1);
   });
 
   /* arrows scroll by one card */

@@ -162,5 +162,37 @@ const Panchang = (function(){
       RASHI: RASHI
     };
   }
-  return {compute:compute, RASHI:RASHI};
+  /* --- exact-instant chart figures, for birth details --- */
+  function atMoment(date){
+    const J  = jd(date);
+    const T  = (J - 2451545)/36525;
+    const ay = ayanamsa(J);
+    const sunS  = norm(sunLong(T)  - ay);
+    const moonS = norm(moonLong(T) - ay);
+    const diff  = norm(moonS - sunS);
+    const tIdx  = Math.floor(diff/12);
+    const nIdx  = Math.floor(moonS/(360/27));
+    const kNum  = Math.floor(diff/6);
+    let karana;
+    if (kNum === 0) karana = KARANA_FIX[0];
+    else if (kNum >= 57) karana = KARANA_FIX[kNum - 56];
+    else karana = KARANA_MOV[(kNum - 1) % 7];
+    return {
+      moonRashi : RASHI[Math.floor(moonS/30)],
+      moonIdx   : Math.floor(moonS/30),
+      sunRashi  : RASHI[Math.floor(sunS/30)],
+      nak       : NAK[nIdx],
+      nakIdx    : nIdx,
+      pada      : Math.floor((moonS % (360/27)) / (360/108)) + 1,
+      tithiName : TITHI[tIdx],
+      paksha    : tIdx < 15 ? 'Shukla Paksha' : 'Krishna Paksha',
+      yoga      : YOGA[Math.floor(norm(sunS + moonS)/(360/27))],
+      karana    : karana,
+      vara      : VARA[date.getDay()],
+      moonLon   : moonS,
+      sunLon    : sunS
+    };
+  }
+
+  return {compute:compute, atMoment:atMoment, RASHI:RASHI, NAK:NAK};
 })();
